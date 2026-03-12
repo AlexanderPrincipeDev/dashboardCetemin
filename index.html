@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CETEMIN · Dashboard Estratégico de Deserción</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img src="logoCetemin.jpeg" alt="CETEMIN" class="logo"
+        style="background:transparent; object-fit:contain; display:block;">
+      <div>
+        <h1>Dashboard Estratégico de Deserción · CETEMIN</h1>
+      </div>
+    </div>
+    <div class="status">
+      <div class="k">Vista ejecutiva</div>
+      <div><strong> marzo 2026 · Deserción 13%</strong></div>
+      <div style="font-size:12px;opacity:.82;margin-top:3px">Escenarios optimista, regular y crítico</div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="filters">
+      <div class="filter">
+        <div class="label">Periodo</div>
+        <div class="value"><span>Marzo 2026</span><span>▾</span></div>
+      </div>
+      <div class="filter">
+        <div class="label">Sede</div>
+        <div class="value"><span>Todas</span><span>▾</span></div>
+      </div>
+      <div class="filter">
+        <div class="label">Carrera</div>
+        <div class="value"><span>Todas las vigentes</span><span>▾</span></div>
+      </div>
+      <div class="filter">
+        <div class="label">Cohorte</div>
+        <div class="value"><span>2026-1</span><span>▾</span></div>
+      </div>
+      <div class="filter">
+        <div class="label">Nivel de riesgo</div>
+        <div class="value"><span>Todos</span><span>▾</span></div>
+      </div>
+      <div class="filter">
+        <div class="label">Escenario visualizado</div>
+        <div class="value"><span>Comparativo</span><span>▾</span></div>
+      </div>
+    </section>
+
+    <section class="hero">
+      <div class="card">
+        <div class="title-row">
+          <div>
+            <div class="smallcap">Resumen ejecutivo</div>
+            <h2>Panorama general del riesgo de deserción</h2>
+          </div>
+          <span class="pill danger">Riesgo alto actual</span>
+        </div>
+        <div class="hero-metrics">
+          <div class="main-stat">
+            <div class="smallcap">Índice de deserción actual</div>
+            <div class="value">13%</div>
+            <div class="subtitle">Punto de partida del sistema. El comportamiento posterior dependerá de cómo
+              evolucionen morosidad, participación, desempeño y progreso curricular.</div>
+            <div class="delta">▲ condición inicial por encima del nivel deseable</div>
+          </div>
+          <div class="mini-grid">
+            <div class="mini">
+              <div class="k">Índice de riesgo</div>
+              <div class="v">0.62</div>
+            </div>
+            <div class="mini">
+              <div class="k">Morosidad</div>
+              <div class="v">21%</div>
+            </div>
+            <div class="mini">
+              <div class="k">Participación</div>
+              <div class="v">64%</div>
+            </div>
+            <div class="mini">
+              <div class="k">Desempeño académico</div>
+              <div class="v">68%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="smallcap">Escenarios estratégicos</div>
+        <h3 style="margin:0">Escenarios generados por el modelo</h3>
+        <div class="subtitle" style="margin-top:4px">La vista compara tres escenarios plausibles para la gestión
+          institucional sin fijar una meta explícita en el panel.</div>
+        <div class="scenarios">
+          <div class="scenario optimista">
+            <div class="name">Escenario optimista</div>
+            <div class="v">7%</div>
+            <div class="t">Deserción anual proyectada</div>
+            <div class="factor-list">
+              <div class="factor-item"><span>Morosidad</span><strong>Baja</strong></div>
+              <div class="factor-item"><span>Participación</span><strong>Alta</strong></div>
+              <div class="factor-item"><span>Desempeño</span><strong>Alto</strong></div>
+              <div class="factor-item"><span>Prog. curricular</span><strong>Alto</strong></div>
+            </div>
+          </div>
+          <div class="scenario regular">
+            <div class="name">Escenario regular</div>
+            <div class="v">9.5%</div>
+            <div class="t">Deserción anual proyectada</div>
+            <div class="factor-list">
+              <div class="factor-item"><span>Morosidad</span><strong>Media</strong></div>
+              <div class="factor-item"><span>Participación</span><strong>Media</strong></div>
+              <div class="factor-item"><span>Desempeño</span><strong>Medio</strong></div>
+              <div class="factor-item"><span>Prog. curricular</span><strong>Medio</strong></div>
+            </div>
+          </div>
+          <div class="scenario critico">
+            <div class="name">Escenario crítico</div>
+            <div class="v">14.8%</div>
+            <div class="t">Deserción anual proyectada</div>
+            <div class="factor-list">
+              <div class="factor-item"><span>Morosidad</span><strong>Alta</strong></div>
+              <div class="factor-item"><span>Participación</span><strong>Baja</strong></div>
+              <div class="factor-item"><span>Desempeño</span><strong>Bajo</strong></div>
+              <div class="factor-item"><span>Prog. curricular</span><strong>Bajo</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="kpis" id="kpiCards"></section>
+
+    <section class="mid">
+      <div class="card">
+        <div class="smallcap">Líneas de tendencia</div>
+        <h3 style="margin:0">Evolución anual de la deserción por escenario</h3>
+
+        <svg id="trendChart" width="100%" height="330" viewBox="0 0 860 330" style="margin-top:10px"></svg>
+        <div class="legend">
+          <span><i class="dot" style="background:var(--green)"></i> Optimista</span>
+          <span><i class="dot" style="background:var(--amber)"></i> Regular</span>
+          <span><i class="dot" style="background:var(--red)"></i> Crítico</span>
+        </div>
+      </div>
+
+      <div class="card drivers">
+        <div class="smallcap">Factores de riesgo</div>
+        <h3 style="margin:0">Peso relativo de los impulsores</h3>
+
+        <div id="driverRows" style="margin-top:10px"></div>
+      </div>
+    </section>
+
+    <section class="bottom">
+      <div class="card">
+        <div class="smallcap">Foco por carrera</div>
+        <h3 style="margin:0">Riesgo por carreras vigentes de CETEMIN</h3>
+        <div class="subtitle" style="margin-top:4px">Vista comparativa resumida para identificar dónde el fenómeno se
+          concentra con más fuerza.</div>
+        <table>
+          <thead>
+            <tr>
+              <th>Carrera</th>
+              <th>Estudiantes</th>
+              <th>Deserción</th>
+              <th>Riesgo</th>
+              <th>Tendencia</th>
+            </tr>
+          </thead>
+          <tbody id="careerRows"></tbody>
+        </table>
+      </div>
+
+      <div class="card matrix">
+        <div class="smallcap">Matriz de escenarios</div>
+        <h3 style="margin:0">Factores de riesgo por escenario</h3>
+
+        <div class="m-row head">
+          <div>Factor</div>
+          <div>Optimista</div>
+          <div>Regular</div>
+          <div>Crítico</div>
+        </div>
+        <div id="matrixRows"></div>
+        <div class="footer-note"><strong>Lectura sugerida:</strong> el dashboard no fuerza una meta en pantalla. Más
+          bien muestra cómo se comporta el sistema según los escenarios generados por el modelo y cómo cambian los
+          factores de riesgo asociados.</div>
+      </div>
+    </section>
+  </main>
+
+  <script src="main.js"></script>
+</body>
+
+</html>
